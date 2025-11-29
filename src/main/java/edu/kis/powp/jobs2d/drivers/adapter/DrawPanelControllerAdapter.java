@@ -28,6 +28,7 @@ public class DrawPanelControllerAdapter extends DrawPanelController implements J
 		line.setEndCoordinates(x, y);
 
 		drawLine(line);
+		setPosition(x, y);
 	}
 
 	@Override
