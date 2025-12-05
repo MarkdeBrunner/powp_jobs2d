@@ -4,18 +4,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import edu.kis.powp.jobs2d.drivers.DriverManager;
-import edu.kis.powp.jobs2d.magicpresets.FiguresJoe;
+import edu.kis.powp.jobs2d.features.TestFigure;
 
 public class SelectTestFigureOptionListener implements ActionListener {
 
-	private DriverManager driverManager;
+	private final DriverManager driverManager;
+	private final TestFigure testFigure;
 
-	public SelectTestFigureOptionListener(DriverManager driverManager) {
+	public SelectTestFigureOptionListener(DriverManager driverManager, TestFigure testFigure) {
 		this.driverManager = driverManager;
+		this.testFigure = testFigure;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		FiguresJoe.figureScript1(driverManager.getCurrentDriver());
+		testFigure.draw(driverManager.getCurrentDriver());
 	}
 }
