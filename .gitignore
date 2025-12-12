@@ -3,3 +3,10 @@
 /.classpath
 /.project
 .settings
+
+#IDE
+/.idea/
+*.iml
+*.iws
+.vscode/
+.code-workspace
