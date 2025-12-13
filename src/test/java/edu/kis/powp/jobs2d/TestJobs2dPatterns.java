@@ -16,6 +16,9 @@ import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 import edu.kis.powp.jobs2d.features.Figure1;
 import edu.kis.powp.jobs2d.features.Figure2;
+import edu.kis.powp.command.DriverCommand;
+import edu.kis.powp.command.OperateToCommand;
+import edu.kis.powp.command.SetPostionCommand;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -39,6 +42,22 @@ public class TestJobs2dPatterns {
 		application.addTest("Figure Jane", new edu.kis.powp.jobs2d.events.SelectJaneFigureOptionListener(
 				DriverFeature.getDriverManager()
 		));
+
+
+		application.addTest("Command Scribble", e -> {
+				Job2dDriver driver = DriverFeature.getDriverManager().getCurrentDriver();
+				DriverCommand[] commands = new DriverCommand[] {
+					new SetPostionCommand(driver, 0, 0),
+					new OperateToCommand(driver, -50, 200),
+					new OperateToCommand(driver, -100, 50),
+					new OperateToCommand(driver, 100, -200),
+					new OperateToCommand(driver, 0, 0)
+				};
+				for (DriverCommand command : commands) {
+					command.execute();
+				}
+			}
+		);
 	}
 
 	/**
