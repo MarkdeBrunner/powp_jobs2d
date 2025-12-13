@@ -16,7 +16,7 @@ import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
 import edu.kis.powp.jobs2d.features.Figure1;
 import edu.kis.powp.jobs2d.features.Figure2;
-import edu.kis.powp.command.DriverCommand;
+import edu.kis.powp.command.api.DriverCommand;
 import edu.kis.powp.command.OperateToCommand;
 import edu.kis.powp.command.SetPostionCommand;
 
@@ -56,6 +56,27 @@ public class TestJobs2dPatterns {
 				for (DriverCommand command : commands) {
 					command.execute();
 				}
+			}
+		);
+
+		application.addTest("Circle", e -> {
+				Job2dDriver driver = DriverFeature.getDriverManager().getCurrentDriver();
+				DriverCommand command = edu.kis.powp.jobs2d.presets.FigureFactory.getCirclePreset(driver, 0, 0, 100, 50);
+				command.execute();
+			}
+		);
+
+		application.addTest("Rectangle", e -> {
+				Job2dDriver driver = DriverFeature.getDriverManager().getCurrentDriver();
+				DriverCommand command = edu.kis.powp.jobs2d.presets.FigureFactory.getRectanglePreset(driver, -50, -25, 100, 50);
+				command.execute();
+			}
+		);
+
+		application.addTest("Triangle", e -> {
+				Job2dDriver driver = DriverFeature.getDriverManager().getCurrentDriver();
+				DriverCommand command = edu.kis.powp.jobs2d.presets.FigureFactory.getTrianglePreset(driver, 0, 0, 100);
+				command.execute();
 			}
 		);
 	}
