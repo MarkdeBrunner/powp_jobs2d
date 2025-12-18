@@ -18,7 +18,7 @@ import edu.kis.powp.jobs2d.features.Figure1;
 import edu.kis.powp.jobs2d.features.Figure2;
 import edu.kis.powp.command.api.DriverCommand;
 import edu.kis.powp.command.OperateToCommand;
-import edu.kis.powp.command.SetPostionCommand;
+import edu.kis.powp.command.SetPositionCommand;
 
 public class TestJobs2dPatterns {
 	private final static Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
@@ -47,7 +47,7 @@ public class TestJobs2dPatterns {
 		application.addTest("Command Scribble", e -> {
 				Job2dDriver driver = DriverFeature.getDriverManager().getCurrentDriver();
 				DriverCommand[] commands = new DriverCommand[] {
-					new SetPostionCommand(driver, 0, 0),
+					new SetPositionCommand(driver, 0, 0),
 					new OperateToCommand(driver, -50, 200),
 					new OperateToCommand(driver, -100, 50),
 					new OperateToCommand(driver, 100, -200),
